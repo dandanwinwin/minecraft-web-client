@@ -162,7 +162,22 @@
   </head>
   <body>
     <div id="react-root"></div>
+<div id="react-root"></div>
     <div id="ui-root"></div>
-    <!-- inject script -->
+    
+    <script>
+      console.log("Tablet Boot Sequence Started...");
+      // Fix for Sore Eyes: Warm filter for Samsung OLED screens
+      document.body.style.filter = "sepia(25%) brightness(95%)";
+
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          if (document.querySelector('.initial-loader')) {
+            console.log("Loading hang detected. Pushing tablet engine...");
+            window.dispatchEvent(new Event('resize')); 
+          }
+        }, 8000);
+      });
+    </script>
   </body>
-</html>
+</html>   
