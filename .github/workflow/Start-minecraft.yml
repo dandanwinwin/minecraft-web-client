@@ -1,8 +1,9 @@
 name: Start-minecraft
 on:
-  pull_request:
-jobs:
-  build-and-deploy:
+  push:
+    branches:
+      - next  # This ensures it runs when you save to your 'next' branch
+  workflow_dispatch: # This adds a manual 'Play' button for you
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
@@ -175,4 +176,8 @@ jobs:
   #         else
   #           echo "No changes detected after pnpm dedupe in pnpm-lock.yaml"
   #         fi
- 
+- name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist/playground # This is where the 1.21 engine lives
+          branch: gh-pages 
