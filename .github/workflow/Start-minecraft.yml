@@ -1,21 +1,21 @@
 name: Start-minecraft
 on:
   push:
-    branches:
-      - next
+    branches: [next]
+  workflow_dispatch:
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
       - uses: pnpm/action-setup@v4
         with:
           version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - run: pnpm install
       - run: pnpm build-playground
       - uses: JamesIves/github-pages-deploy-action@v4
