@@ -176,8 +176,8 @@ on:
   #         else
   #           echo "No changes detected after pnpm dedupe in pnpm-lock.yaml"
   #         fi
-- name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: dist/playground # This is where the 1.21 engine lives
-          branch: gh-pages 
+         - name: Deploy to GitHub Pages
+           uses: JamesIves/github-pages-deploy-action@v4
+           with:
+             folder: dist/playground # This is where the 1.21 engine lives
+             branch: gh-pages 
