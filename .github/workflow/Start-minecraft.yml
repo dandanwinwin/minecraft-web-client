@@ -1,4 +1,4 @@
-name: CI
+name: Start-minecraft
 on:
   pull_request:
 jobs:
